@@ -1,0 +1,29 @@
+{
+  "name": "shoppingCard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adel1982/js-node-shopping-cart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adel1982/js-node-shopping-cart/issues"
+  },
+  "homepage": "https://github.com/adel1982/js-node-shopping-cart#readme",
+  "devDependencies": {
+    "html2pug": "^2.0.1",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
+}
