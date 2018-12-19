@@ -1,9 +1,15 @@
 const getIndex = (req,res) => {
-	res.render('index');
+	res.render('index', {
+		title: 'Bienvenue sur votre boutique',
+		path: '/'
+	});
 }
 
 const getCart = (req,res) => {
-	res.render('cart');
+	res.render('cart', {
+		title: "Panier",
+		path: '/panier'
+	});
 }
 
 module.exports = {
