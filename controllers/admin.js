@@ -1,5 +1,8 @@
 const getIndex = (req,res) => {
-	res.send('Admin');
+	res.render('admin', {
+		title: 'Administration des produits',
+		admin: true
+	});
 }
 
 module.exports = {
