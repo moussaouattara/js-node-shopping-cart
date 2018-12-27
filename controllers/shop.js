@@ -1,7 +1,21 @@
+const Product = require('../models/Product');
+
 const getIndex = (req,res) => {
-	res.render('index', {
-		title: 'Bienvenue sur votre boutique',
-		path: '/'
+	Product.findAll(products => {
+		res.render('index', {
+			title: 'Bienvenue sur votre boutique',
+			path: '/',
+			products: products
+		});
+	});
+}
+
+const getProductDetails = (req, res) => {
+	Product.findById(req.params.id, product => {
+		res.render('product-details', {
+			title: product.name,
+			product: product
+		});
 	});
 }
 
@@ -14,5 +28,6 @@ const getCart = (req,res) => {
 
 module.exports = {
 	getIndex: getIndex,
+	getProductDetails: getProductDetails,
 	getCart: getCart
 }

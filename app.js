@@ -15,9 +15,11 @@ app.use(bodyParser.urlencoded({extended:false}));
 // Routes
 const shopRoutes = require('./routes/shop')
 app.use('/', shopRoutes);
+
 const adminRoutes = require('./routes/admin');
 app.use('/admin', adminRoutes);
 
+// Port
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
