@@ -1,4 +1,5 @@
 const Product = require('../models/Product');
+const Cart = require('../models/Cart');
 
 const getIndex = (req,res) => {
 	Product.findAll(products => {
@@ -26,8 +27,17 @@ const getCart = (req,res) => {
 	});
 }
 
+const postCart = (req,res) => {
+	Product.findById(req.body.productId, product => {
+		Cart.add(req.body.productId, product.price, () => {
+			res.redirect('/panier');
+		});
+	});
+}
+
 module.exports = {
 	getIndex: getIndex,
 	getProductDetails: getProductDetails,
-	getCart: getCart
+	getCart: getCart,
+	postCart: postCart
 }

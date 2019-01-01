@@ -15,4 +15,8 @@ block content
 							| Prix: 
 							span.badge.badge-pill.badge-dark #{product.price}€ 
 						hr
-						a(href="/produit/"+product.id).btn.btn-outline-dark.btn-sm Voir le produit
+						.d-flex
+							a(href="/produit/"+product.id).btn.btn-outline-dark.btn-sm.mr-2 Voir le produit
+							form(action="/ajouter-au-panier", method="POST")
+								input(type="hidden", name="productId", value=product.id)
+								buton(type="submit").btn.btn-outline-dark.btn-sm ajouter au panier

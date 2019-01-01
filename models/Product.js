@@ -7,7 +7,7 @@ const appDir = path.dirname(require.main.filename);
 
 const p = path.join(appDir, 'data', 'products.json') // Chemin vers le fichier products.json
 
-const getProductFromFile = (callback) => {
+const getProductsFromFile = (callback) => {
 	fs.readFile(p, (err, fileContent) => {
 		if(err) {
 			callback([]);
@@ -31,7 +31,7 @@ class Product {
 		// Option 2 Le fichier n'existe pas => Créer un tableau avec le nouveau produit.
 		this.id = uuidv1();
 
-		getProductFromFile(products => {
+		getProductsFromFile(products => {
 			products.push(this);
 			fs.writeFile(p, JSON.stringify(products), err => {
 				if (err) console.log(err);
@@ -41,13 +41,13 @@ class Product {
 	}
 
 	static findAll(callback) { // static permet d'appeler la méthode sans faire une instance de la class
-		getProductFromFile(products => {
+		getProductsFromFile(products => {
 			callback(products)
 		});
 	}
 
 	static findById(id, callback) { // static permet d'appeler la méthode sans faire une instance de la class
-		getProductFromFile(products => {
+		getProductsFromFile(products => {
 			const product = products.find(prod => prod.id === id);
 			callback(product);
 		});

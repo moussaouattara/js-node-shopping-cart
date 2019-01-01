@@ -9,4 +9,6 @@ router.get('/produit/:id', shopController.getProductDetails);
 
 router.get('/panier', shopController.getCart);
 
+router.post('/ajouter-au-panier', shopController.postCart);
+
 module.exports = router;
