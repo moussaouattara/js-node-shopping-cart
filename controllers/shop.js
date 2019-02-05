@@ -28,12 +28,11 @@ const getCart = (req,res) => {
 }
 
 const postCart = (req,res) => {
-	console.log('post !');
-	// Product.findById(req.body.productId, product => {
-	// 	Cart.add(req.body.productId, product.price, () => {
-	// 		res.redirect('/panier');
-	// 	});
-	// });
+	Product.findById(req.body.productId, product => {
+		Cart.add(req.body.productId, product.price, () => {
+			res.redirect('/panier');
+		});
+	});
 }
 
 module.exports = {
